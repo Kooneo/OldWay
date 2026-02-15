@@ -108,7 +108,9 @@ void makeHotsBackup(const std::string& hostsFilePath)
         std::filesystem::copy_file(hostsFilePath, destPath, std::filesystem::copy_options::overwrite_existing);
     }
     catch (std::exception& e)
+    {
         std::cerr << "Error copying file: " << e.what() << std::endl;
+    }
 }
 
 std::string loadHostsFileContent(const std::string& hostsFilePath)
@@ -140,7 +142,9 @@ void writeBansToFile(const std::string& path, const std::string &hostsFileConten
         std::cout << "Bans added successfully!" << std::endl;
     }
     else
+    {
         std::cerr << "Permission denied. Run with sudo!" << std::endl;
+    }
 }
 
 int main()
